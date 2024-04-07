@@ -1,0 +1,94 @@
+Je n'arrive plus à acceder à ma base de donnée, j'ai relancé plusieurs fois la clean instal de maven, relancer inteilj
+et le projet mais rien y fait ...
+
+j'ai esseyer de mettre un nouveau repo GIT pour essayer que cette erreur ne se repercute pas sur le projet quand vous le
+telechargerai/testerai
+
+taches effectuées :
+
+- Mise en place de la webbapp
+- Mise en place de la liste des vehicules
+- mise en place des beans
+- mise en place de Vehicule Delete
+_ mise en place des requettes réservation
+
+
+
+
+
+
+
+
+
+
+
+message d'erreur :
+
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de données est peut-être en cours d'utilisation: null. Solutions posibles: fermer toutes les autres connexions; utilisez le mode serveur
+Database may be already in use: null. Possible solutions: close all other connection(s); use the server mode [90020-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:622)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.mvstore.db.MVTableEngine$Store.convertIllegalStateException(MVTableEngine.java:206)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:182)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:189)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:160)
+	at com.epf.rentmanager.persistence.ConnectionManager.getConnection(ConnectionManager.java:26)
+	at com.epf.rentmanager.dao.ClientDao.findAll(ClientDao.java:94)
+	at com.epf.rentmanager.service.ClientService.findAll(ClientService.java:54)
+	at com.epf.rentmanager.ui.cli.cli.main(cli.java:99)
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/NATHAN/RentManagerDatabase.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	... 20 more
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de données est peut-être en cours d'utilisation: null. Solutions posibles: fermer toutes les autres connexions; utilisez le mode serveur
+Database may be already in use: null. Possible solutions: close all other connection(s); use the server mode [90020-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:622)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.mvstore.db.MVTableEngine$Store.convertIllegalStateException(MVTableEngine.java:206)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:182)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.h2.jdbcx.JdbcDataSource.getJdbcConnection(JdbcDataSource.java:189)
+	at org.h2.jdbcx.JdbcDataSource.getConnection(JdbcDataSource.java:160)
+	at com.epf.rentmanager.persistence.ConnectionManager.getConnection(ConnectionManager.java:26)
+	at com.epf.rentmanager.dao.ClientDao.create(ClientDao.java:32)
+	at com.epf.rentmanager.service.ClientService.create(ClientService.java:28)
+	at com.epf.rentmanager.ui.cli.cli.main(cli.java:104)
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/NATHAN/RentManagerDatabase.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	... 20 more
